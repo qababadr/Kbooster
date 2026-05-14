@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
-    kotlin("plugin.serialization") version "2.3.21"
+    alias(libs.plugins.kotlin.serialization)
     id("maven-publish")
     alias(libs.plugins.ksp)
 }
