@@ -34,13 +34,6 @@ android {
 
 }
 
-//tasks.register("compileDebugSources") {
-//    dependsOn("compileKotlin")
-//}
-//tasks.register("compileReleaseSources") {
-//    dependsOn("compileKotlin")
-//}
-
 dependencies {
     // KSP dependencies
     implementation("com.google.devtools.ksp:symbol-processing-api:2.3.4")
