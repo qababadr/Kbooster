@@ -11,11 +11,12 @@ import com.squareup.kotlinpoet.*
 import com.squareup.kotlinpoet.ksp.*
 
 class UseCaseProcessor(
-    private val codeGenerator: CodeGenerator
+    private val codeGenerator: CodeGenerator,
+    private val logger: KSPLogger
 ) : SymbolProcessor {
 
     override fun process(resolver: Resolver): List<KSAnnotated> {
-
+        logger.warn("KBooster processor started")
         val symbols = resolver
             .getSymbolsWithAnnotation(Usecaseable::class.qualifiedName!!)
             .filterIsInstance<KSClassDeclaration>()
