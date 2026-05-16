@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.serialization)
     id("maven-publish")
 }
 
@@ -9,7 +8,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.badrqaba.kbooster"
+    namespace = "com.badrqaba.kbooster.processor"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -30,22 +29,16 @@ android {
     publishing {
         singleVariant("release")
     }
-
 }
 
 dependencies {
+    implementation(project(":Kbooster-core"))
+
     // KSP dependencies
     implementation(libs.ksp.api)
+    implementation("com.squareup:kotlinpoet:1.18.1")
+    implementation("com.squareup:kotlinpoet-ksp:1.18.1")
 
-    implementation("io.ktor:ktor-client-core:2.3.12")
-    implementation("io.ktor:ktor-client-cio:2.3.12")
-    implementation("io.ktor:ktor-client-android:2.3.12")
-    implementation("io.ktor:ktor-client-logging:2.3.12")
-    implementation("io.ktor:ktor-client-content-negotiation:2.3.12")
-    implementation("io.ktor:ktor-serialization-gson:2.3.12")
-    implementation("io.ktor:ktor-client-mock:2.3.12")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-    implementation("com.google.code.gson:gson:2.11.0")
     compileOnly("com.google.android:android:4.1.1.4")
 }
 
@@ -57,7 +50,7 @@ afterEvaluate {
                 from(components["release"])
 
                 groupId = "com.github.badrqaba"
-                artifactId = "Kbooster"
+                artifactId = "Kbooster-processor"
                 version = project.version.toString()
             }
         }

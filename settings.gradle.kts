@@ -25,3 +25,5 @@ dependencyResolutionManagement {
 rootProject.name = "Kbooster"
 //include(":app")
 include(":Kbooster")
+include(":Kbooster-processor")
+include(":Kbooster-core")

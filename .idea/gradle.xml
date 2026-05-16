@@ -10,6 +10,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Kbooster" />
+            <option value="$PROJECT_DIR$/Kbooster-core" />
+            <option value="$PROJECT_DIR$/Kbooster-processor" />
           </set>
         </option>
       </GradleProjectSettings>
